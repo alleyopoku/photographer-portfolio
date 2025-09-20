@@ -1,5 +1,6 @@
 // src/types/styled.d.ts
 import 'styled-components';
+declare module 'react-image-lightbox';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
