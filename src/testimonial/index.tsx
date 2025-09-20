@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Slider from 'react-slick';
-import testimonials from '../../data/testimonials.json';
+import testimonials from '../../data/testimonials.json'
+import { useState } from 'react';
+;
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -109,3 +111,27 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+const TestimonialForm = () => {
+  const [formData, setFormData] = useState({ name: '', quote: '', image: '', logo: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await fetch('/api/testimonials', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    setFormData({ name: '', quote: '', image: '', logo: '' });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input placeholder="Name" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} />
+      <textarea placeholder="Quote" value={formData.quote} onChange={e => setFormData({ ...formData, quote: e.target.value })} />
+      <input placeholder="Logo URL" value={formData.logo} onChange={e => setFormData({ ...formData, logo: e.target.value })} />
+      <input placeholder="Image URL" value={formData.image} onChange={e => setFormData({ ...formData, image: e.target.value })} />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
