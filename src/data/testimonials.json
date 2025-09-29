@@ -3,6 +3,10 @@
     "name": "Sophie Martin",
     "quote": "VitalCircle3207 captured our wedding...",
     "logo": "/assets/client1-logo.png",
-    "image": "/assets/client1.jpg"
+    "images": [
+      "/assets/dushawn-jovic-cruUfe5g1Zk-unsplash.jpg",
+      "/assets/dushawn-jovic-cruUfe5g1Zk-unsplash.jpg",
+      "/assets/stefan-stefancik-QXevDflbl8A-unsplash.jpg"
+    ]
   }
 ]
